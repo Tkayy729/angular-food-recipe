@@ -9,10 +9,9 @@ import { EmailValidator } from '@angular/forms';
 })
 export class RecipeItemComponent {
   @Input() recipe!: Recipe;
+  @Output() selectedRecipe = new EventEmitter<void>();
 
-  @Output() selectedRecipe = new EventEmitter<Recipe>();
-
-  onSelect(recipe: Recipe) {
-    this.selectedRecipe.emit(recipe);
+  onSelect() {
+    this.selectedRecipe.emit();
   }
 }
